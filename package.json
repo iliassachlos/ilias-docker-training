@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:staging": "tsc -b && vite build --sourcemap",
+    "build:dev": "tsc -b && vite build --sourcemap",
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "dotenv -e .env.development -- cross-env-shell \"json-server db/db.json --port $VITE_API_PORT\""
