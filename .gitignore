@@ -25,3 +25,5 @@ dist-ssr
 
 # Environments
 .env.development
+.env.staging
+.env.production
