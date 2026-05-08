@@ -4,6 +4,19 @@ A small CRUD app built as a self-training project to learn Docker, multi-environ
 
 The app itself is a Star Wars planets browser — fetch planets from [SWAPI](https://swapi.info), save your favorites, switch between grid/list views. The interesting part is the **infrastructure around it**
 
+You can visit the live app at [https://ilias-docker-training-frontend.onrender.com](https://ilias-docker-training-frontend.onrender.com)
+
+> ⚠️ Both services are hosted on Render's free tier and spin down after 15 minutes of inactivity. The first request after a quiet period may take ~30 seconds to wake up.
+
+## Live deployment
+
+Both services are deployed on [Render](https://render.com) using the published Docker Hub images:
+
+| Service  | URL                                                             |
+| -------- | --------------------------------------------------------------- |
+| Frontend | https://ilias-docker-training-frontend.onrender.com             |
+| Backend  | https://ilias-docker-training-backend.onrender.com              |
+
 ## Built with
 
 [![typescript-shield]][typescript-url]
