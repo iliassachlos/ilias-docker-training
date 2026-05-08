@@ -48,7 +48,7 @@ export const AddPlanetView: FC<AddPlanetViewProps> = (props) => {
   return (
     <main className="flex flex-col sm:flex-row items-center self-stretch gap-2">
       <Combobox items={planetNames} value={selectedPlanet} onValueChange={setSelectedPlanet}>
-        <ComboboxInput placeholder="Select a framework" className="w-full px-2" disabled={isLoading} />
+        <ComboboxInput placeholder="Select a planet" className="w-full px-2" disabled={isLoading} />
         <ComboboxContent>
           <ComboboxEmpty>{error ? "Error loading planets" : "No planets found"}</ComboboxEmpty>
           <ComboboxList>
