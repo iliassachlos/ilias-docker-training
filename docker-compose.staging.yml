@@ -1,0 +1,25 @@
+services:
+  frontend:
+    container_name: "ilias-docker-training-staging"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILD_ENV: "staging"
+    restart: unless-stopped
+    ports:
+      - "3001:80"
+
+  backend:
+    container_name: "ilias-docker-training-backend-staging"
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+    volumes:
+      - planets-data-staging:/app/data
+
+volumes:
+  planets-data-staging:
