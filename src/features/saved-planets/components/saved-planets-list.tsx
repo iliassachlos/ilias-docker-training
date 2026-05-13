@@ -9,12 +9,13 @@ type PlanetListProps = {
   planets?: SavedPlanet[];
   isLoading: boolean;
   error: unknown;
+  searchTerm?: string;
 };
 
 const SKELETON_COUNT = 6;
 
 export const PlanetList: FC<PlanetListProps> = (props) => {
-  const { planets, isLoading, error } = props;
+  const { planets, isLoading, error, searchTerm } = props;
 
   const view = useSelector((state: RootState) => state.ui.planetView);
 
@@ -35,7 +36,10 @@ export const PlanetList: FC<PlanetListProps> = (props) => {
   }
 
   if (!planets || planets.length === 0) {
-    return <p>No planets found.</p>;
+    if (searchTerm) {
+      return <p className="text-muted-foreground">No planets match "{searchTerm}"</p>;
+    }
+    return <p className="text-muted-foreground">No saved planets yet. Add your first one above.</p>;
   }
 
   return (
