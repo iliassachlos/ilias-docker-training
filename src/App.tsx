@@ -7,7 +7,7 @@ export const App: FC = () => {
     <div>
       <Header />
 
-      <div className="container mx-auto p-2">
+      <div className="container mx-auto px-2">
         <Router />
       </div>
     </div>
