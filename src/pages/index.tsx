@@ -1,6 +1,16 @@
 import type { FC } from "react";
-import { PlanetListView } from "../features/planet-list/view";
+import { SavedPlanetsView } from "../features/planet-list/view";
+import { Helmet } from "react-helmet-async";
 
 export const Homepage: FC = () => {
-  return <PlanetListView />;
+  return (
+    <>
+      <Helmet>
+        <title>Saved Planets | Docker Training</title>
+        <meta name="description" content="Browse saved planets" />
+      </Helmet>
+
+      <SavedPlanetsView />
+    </>
+  );
 };
