@@ -2,7 +2,7 @@ import type { FC } from "react";
 import { Card, CardContent, CardHeader } from "../../../components/ui/card";
 import { Skeleton } from "../../../components/ui/skeleton";
 
-export const PlanetCardSkeleton: FC = () => {
+export const SavedPlanetCardSkeleton: FC = () => {
   return (
     <Card className="rounded-2xl">
       <CardHeader className="flex flex-row items-start justify-between space-y-0">

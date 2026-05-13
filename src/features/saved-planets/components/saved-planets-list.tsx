@@ -1,9 +1,9 @@
 import { type FC } from "react";
 import type { SavedPlanet } from "../../../types/planet";
-import { PlanetCard } from "./planet-card";
-import { PlanetCardSkeleton } from "./planet-card-skeleton";
+import { PlanetCard } from "./saved-planet-card";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../../store/store";
+import { SavedPlanetCardSkeleton } from "./saved-planets-card-skeleton";
 
 type PlanetListProps = {
   planets?: SavedPlanet[];
@@ -18,14 +18,12 @@ export const PlanetList: FC<PlanetListProps> = (props) => {
 
   const view = useSelector((state: RootState) => state.ui.planetView);
 
-  console.log("view", view);
-
   if (isLoading) {
     return (
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {Array.from({ length: SKELETON_COUNT }).map((_, index) => (
           <li key={index}>
-            <PlanetCardSkeleton />
+            <SavedPlanetCardSkeleton />
           </li>
         ))}
       </ul>

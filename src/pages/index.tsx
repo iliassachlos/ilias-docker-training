@@ -1,6 +1,7 @@
 import type { FC } from "react";
-import { SavedPlanetsView } from "../features/planet-list/view";
+
 import { Helmet } from "react-helmet-async";
+import { SavedPlanetsView } from "../features/saved-planets/view";
 
 export const Homepage: FC = () => {
   return (
