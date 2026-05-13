@@ -18,7 +18,7 @@ type AddPlanetViewProps = {
   savedPlanets?: SavedPlanet[];
 };
 
-export const AddPlanetView: FC<AddPlanetViewProps> = (props) => {
+export const AddSavedPlanet: FC<AddPlanetViewProps> = (props) => {
   const { savedPlanets } = props;
 
   const [selectedPlanet, setSelectedPlanet] = useState<string | null>("");
@@ -46,7 +46,7 @@ export const AddPlanetView: FC<AddPlanetViewProps> = (props) => {
   };
 
   return (
-    <main className="flex flex-col sm:flex-row items-center self-stretch gap-2 w-full ">
+    <div className="flex flex-col sm:flex-row items-center self-stretch gap-2 w-full ">
       <Combobox items={planetNames} value={selectedPlanet} onValueChange={setSelectedPlanet}>
         <ComboboxInput
           placeholder="Select a planet"
@@ -72,6 +72,6 @@ export const AddPlanetView: FC<AddPlanetViewProps> = (props) => {
       >
         {isSaving ? "Saving..." : "Save"}
       </Button>
-    </main>
+    </div>
   );
 };
