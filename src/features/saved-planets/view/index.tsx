@@ -1,9 +1,9 @@
 import { useState, type FC } from "react";
-import { AddPlanetView } from "../../add-planet/view";
 import { PlanetViewToggle } from "../components/saved-planets-view-toggle";
 import { useGetSavedPlanetsQuery } from "../../../store/apis/saved-planet-api";
 import { PlanetList } from "../components/saved-planets-list";
 import { SavedPlanetsSearch } from "../components/saved-planets-search";
+import { AddSavedPlanet } from "../components/add-saved-planet";
 
 export const SavedPlanetsView: FC = () => {
   const { data: savedPlanets, isLoading, error } = useGetSavedPlanetsQuery();
@@ -24,7 +24,7 @@ export const SavedPlanetsView: FC = () => {
       </header>
 
       <div className="flex flex-row justify-start items-center self-stretch w-full">
-        <AddPlanetView savedPlanets={savedPlanets} />
+        <AddSavedPlanet savedPlanets={savedPlanets} />
       </div>
 
       <div className="flex flex-col md:flex-row justify-center md:justify-between items-start md:items-center self-stretch my-2 gap-4">
