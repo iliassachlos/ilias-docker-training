@@ -11,7 +11,7 @@ export const errorRoutes = [
     paths: paths.home,
     element: (
       <Layout>
-        <Suspense fallback={<div className="p-8">Loading...</div>}>
+        <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>
       </Layout>

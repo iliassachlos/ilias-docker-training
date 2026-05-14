@@ -4,6 +4,9 @@ import { Badge } from "../../../components/ui/badge";
 import type { SavedPlanet } from "../../../types/planet";
 
 import { DeleteSavedPlanet } from "./delete-saved-planet";
+import { useNavigate } from "react-router-dom";
+import { paths } from "../../../routes/paths";
+import toast from "react-hot-toast";
 
 type PlanetCardProps = {
   planet: SavedPlanet;
@@ -13,10 +16,22 @@ type PlanetCardProps = {
 export const PlanetCard: FC<PlanetCardProps> = (props) => {
   const { planet, view = "grid" } = props;
 
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    const swapiId = planet.url.split("/").filter(Boolean).pop();
+
+    if (swapiId) {
+      navigate(paths.planetDetails(swapiId));
+    } else {
+      toast.error("Invalid planet URL");
+    }
+  };
+
   if (view === "list") {
     return (
       <>
-        <Card className="rounded-2xl">
+        <Card className="rounded-2xl cursor-pointer" onClick={handleNavigate}>
           <CardContent className="flex items-center gap-4 py-3">
             <div className="flex-1 min-w-0">
               <p className="font-semibold truncate">{planet.name}</p>
@@ -40,7 +55,7 @@ export const PlanetCard: FC<PlanetCardProps> = (props) => {
 
   return (
     <>
-      <Card className="rounded-2xl">
+      <Card className="rounded-2xl cursor-pointer" onClick={handleNavigate}>
         <CardHeader className="flex flex-row items-start justify-between space-y-0">
           <div>
             <CardTitle className="text-xl">{planet.name}</CardTitle>
