@@ -15,7 +15,7 @@ export const SavedPlanetsView: FC = () => {
   );
 
   return (
-    <main className="flex flex-col gap-6 my-4">
+    <main className="flex flex-col gap-6">
       <header className="flex flex-col justify-center items-start self-stretch">
         <h1 className="text-2xl font-semibold">Saved Planets</h1>
         {savedPlanets && savedPlanets.length > 0 && (

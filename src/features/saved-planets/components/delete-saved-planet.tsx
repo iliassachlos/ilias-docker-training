@@ -26,7 +26,13 @@ export const DeleteSavedPlanet: FC<DeleteSavedPlanetProps> = (props) => {
 
   const [deletePlanet, { isLoading }] = useDeletePlanetMutation();
 
-  const handleDelete = async () => {
+  const handleButtonClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsDialogOpen(true);
+  };
+
+  const handleDelete = async (e: React.MouseEvent) => {
+    e.stopPropagation();
     try {
       await deletePlanet(planet.id).unwrap();
 
@@ -41,7 +47,7 @@ export const DeleteSavedPlanet: FC<DeleteSavedPlanetProps> = (props) => {
       <Button
         variant="ghost"
         size="icon"
-        onClick={() => setIsDialogOpen(true)}
+        onClick={handleButtonClick}
         disabled={isLoading}
         aria-label={`Delete ${planet.name}`}
         className="cursor-pointer "
@@ -58,7 +64,9 @@ export const DeleteSavedPlanet: FC<DeleteSavedPlanetProps> = (props) => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel className="cursor-pointer">Cancel</AlertDialogCancel>
+            <AlertDialogCancel className="cursor-pointer" onClick={(e) => e.stopPropagation()}>
+              Cancel
+            </AlertDialogCancel>
             <AlertDialogAction
               className="cursor-pointer"
               variant="destructive"
