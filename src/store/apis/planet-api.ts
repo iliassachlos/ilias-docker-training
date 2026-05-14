@@ -13,7 +13,10 @@ export const planetsEndpoints = planetsApi.injectEndpoints({
       query: () => "/planets",
       keepUnusedDataFor: Infinity,
     }),
+    getPlanet: builder.query<Planet, string>({
+      query: (id) => `/planets/${id}`,
+    }),
   }),
 });
 
-export const { useGetPlanetsQuery } = planetsEndpoints;
+export const { useGetPlanetsQuery, useGetPlanetQuery } = planetsEndpoints;

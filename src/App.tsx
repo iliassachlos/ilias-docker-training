@@ -1,15 +1,20 @@
 import type { FC } from "react";
-import { Header } from "./components/header";
-import { Router } from "./router/router";
+import { HelmetProvider } from "react-helmet-async";
+import { Provider } from "react-redux";
+import { Toaster } from "react-hot-toast";
+import { setupStore } from "./store/store";
+import { RouterProvider } from "react-router-dom";
+import router from "./routes";
 
 export const App: FC = () => {
-  return (
-    <div>
-      <Header />
+  const store = setupStore();
 
-      <div className="container mx-auto p-2">
-        <Router />
-      </div>
-    </div>
+  return (
+    <HelmetProvider>
+      <Provider store={store}>
+        <Toaster position="top-right" />
+        <RouterProvider router={router} />
+      </Provider>
+    </HelmetProvider>
   );
 };
