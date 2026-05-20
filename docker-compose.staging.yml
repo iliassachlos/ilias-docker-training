@@ -2,7 +2,7 @@ services:
   frontend:
     container_name: "ilias-docker-training-staging"
     build:
-      context: .
+      context: ./frontend
       dockerfile: Dockerfile
       args:
         BUILD_ENV: "staging"
@@ -15,7 +15,7 @@ services:
     container_name: "ilias-docker-training-backend-staging"
     build:
       context: .
-      dockerfile: Dockerfile.backend
+      dockerfile: server/Dockerfile
     restart: unless-stopped
     ports:
       - "8081:8080"
